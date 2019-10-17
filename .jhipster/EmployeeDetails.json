@@ -1,0 +1,72 @@
+{
+    "name": "EmployeeDetails",
+    "fields": [
+        {
+            "fieldName": "employeeId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "department",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "joiningDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "panNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bankAccountNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bank",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "employeeDetails",
+            "relationshipName": "employeeId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191017082754",
+    "entityTableName": "employee_details",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

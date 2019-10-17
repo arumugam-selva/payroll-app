@@ -1,0 +1,56 @@
+{
+    "name": "EmployeeEarning",
+    "fields": [
+        {
+            "fieldName": "employeeId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "effectiveDate",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "basic",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "hra",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "conveyance",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "leaveEncash",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "specialAllowance",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reimbursement",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "employeeEarning",
+            "relationshipName": "employeeId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191017082755",
+    "entityTableName": "employee_earning",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,48 @@
+{
+    "name": "EmployeeDeductions",
+    "fields": [
+        {
+            "fieldName": "employeeId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "effectiveDate",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pf",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "profTax",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "incomeTax",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lop",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "employeeDeductions",
+            "relationshipName": "employeeId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191017082756",
+    "entityTableName": "employee_deductions",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

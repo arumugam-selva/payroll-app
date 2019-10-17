@@ -1,0 +1,52 @@
+{
+    "name": "EmployeeTimeSheet",
+    "fields": [
+        {
+            "fieldName": "employeeId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "month",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "noOfWorkingDays",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "noOfLeavs",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "noOfLop",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "noOfArearDays",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "employeeTimeSheet",
+            "relationshipName": "employeeId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191017082757",
+    "entityTableName": "employee_time_sheet",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
