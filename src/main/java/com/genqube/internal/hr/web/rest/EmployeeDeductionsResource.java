@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -52,7 +53,7 @@ public class EmployeeDeductionsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/employee-deductions")
-    public ResponseEntity<EmployeeDeductions> createEmployeeDeductions(@RequestBody EmployeeDeductions employeeDeductions) throws URISyntaxException {
+    public ResponseEntity<EmployeeDeductions> createEmployeeDeductions(@Valid @RequestBody EmployeeDeductions employeeDeductions) throws URISyntaxException {
         log.debug("REST request to save EmployeeDeductions : {}", employeeDeductions);
         if (employeeDeductions.getId() != null) {
             throw new BadRequestAlertException("A new employeeDeductions cannot already have an ID", ENTITY_NAME, "idexists");
@@ -73,7 +74,7 @@ public class EmployeeDeductionsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/employee-deductions")
-    public ResponseEntity<EmployeeDeductions> updateEmployeeDeductions(@RequestBody EmployeeDeductions employeeDeductions) throws URISyntaxException {
+    public ResponseEntity<EmployeeDeductions> updateEmployeeDeductions(@Valid @RequestBody EmployeeDeductions employeeDeductions) throws URISyntaxException {
         log.debug("REST request to update EmployeeDeductions : {}", employeeDeductions);
         if (employeeDeductions.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

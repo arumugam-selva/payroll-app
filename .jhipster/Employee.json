@@ -3,11 +3,15 @@
     "fields": [
         {
             "fieldName": "org",
-            "fieldType": "String"
+            "fieldType": "Organization",
+            "fieldValues": "GQ,BZ"
         },
         {
             "fieldName": "status",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "relationships": [],

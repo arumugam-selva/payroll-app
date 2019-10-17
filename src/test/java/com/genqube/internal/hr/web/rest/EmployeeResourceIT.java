@@ -28,14 +28,15 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.genqube.internal.hr.domain.enumeration.Organization;
 /**
  * Integration tests for the {@link EmployeeResource} REST controller.
  */
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeResourceIT {
 
-    private static final String DEFAULT_ORG = "AAAAAAAAAA";
-    private static final String UPDATED_ORG = "BBBBBBBBBB";
+    private static final Organization DEFAULT_ORG = Organization.GQ;
+    private static final Organization UPDATED_ORG = Organization.BZ;
 
     private static final String DEFAULT_STATUS = "AAAAAAAAAA";
     private static final String UPDATED_STATUS = "BBBBBBBBBB";
@@ -148,6 +149,24 @@ public class EmployeeResourceIT {
 
     @Test
     @Transactional
+    public void checkStatusIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeRepository.findAll().size();
+        // set the field null
+        employee.setStatus(null);
+
+        // Create the Employee, which fails.
+
+        restEmployeeMockMvc.perform(post("/api/employees")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(employee)))
+            .andExpect(status().isBadRequest());
+
+        List<Employee> employeeList = employeeRepository.findAll();
+        assertThat(employeeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEmployees() throws Exception {
         // Initialize the database
         employeeRepository.saveAndFlush(employee);
@@ -157,7 +176,7 @@ public class EmployeeResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employee.getId().intValue())))
-            .andExpect(jsonPath("$.[*].org").value(hasItem(DEFAULT_ORG)))
+            .andExpect(jsonPath("$.[*].org").value(hasItem(DEFAULT_ORG.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS)));
     }
     
@@ -172,7 +191,7 @@ public class EmployeeResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employee.getId().intValue()))
-            .andExpect(jsonPath("$.org").value(DEFAULT_ORG))
+            .andExpect(jsonPath("$.org").value(DEFAULT_ORG.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS));
     }
 

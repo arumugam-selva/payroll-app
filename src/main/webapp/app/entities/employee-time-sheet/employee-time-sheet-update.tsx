@@ -91,13 +91,35 @@ export class EmployeeTimeSheetUpdate extends React.Component<IEmployeeTimeSheetU
                   <Label id="monthLabel" for="employee-time-sheet-month">
                     Month
                   </Label>
-                  <AvField id="employee-time-sheet-month" type="string" className="form-control" name="month" />
+                  <AvField
+                    id="employee-time-sheet-month"
+                    type="string"
+                    className="form-control"
+                    name="month"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      min: { value: 1, errorMessage: 'This field should be at least 1.' },
+                      max: { value: 12, errorMessage: 'This field cannot be more than 12.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="yearLabel" for="employee-time-sheet-year">
                     Year
                   </Label>
-                  <AvField id="employee-time-sheet-year" type="string" className="form-control" name="year" />
+                  <AvField
+                    id="employee-time-sheet-year"
+                    type="string"
+                    className="form-control"
+                    name="year"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      min: { value: 2016, errorMessage: 'This field should be at least 2016.' },
+                      max: { value: 3000, errorMessage: 'This field cannot be more than 3000.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="noOfWorkingDaysLabel" for="employee-time-sheet-noOfWorkingDays">

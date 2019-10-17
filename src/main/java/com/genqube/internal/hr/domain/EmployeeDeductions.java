@@ -2,6 +2,7 @@ package com.genqube.internal.hr.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,7 +20,8 @@ public class EmployeeDeductions implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "effective_date")
+    @NotNull
+    @Column(name = "effective_date", nullable = false)
     private LocalDate effectiveDate;
 
     @Column(name = "pf")

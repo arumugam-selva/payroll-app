@@ -1,8 +1,11 @@
 package com.genqube.internal.hr.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
+
+import com.genqube.internal.hr.domain.enumeration.Organization;
 
 /**
  * A Employee.
@@ -17,10 +20,12 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "org")
-    private String org;
+    private Organization org;
 
-    @Column(name = "status")
+    @NotNull
+    @Column(name = "status", nullable = false)
     private String status;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -32,16 +37,16 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    public String getOrg() {
+    public Organization getOrg() {
         return org;
     }
 
-    public Employee org(String org) {
+    public Employee org(Organization org) {
         this.org = org;
         return this;
     }
 
-    public void setOrg(String org) {
+    public void setOrg(Organization org) {
         this.org = org;
     }
 

@@ -91,7 +91,15 @@ export class EmployeeEarningUpdate extends React.Component<IEmployeeEarningUpdat
                   <Label id="effectiveDateLabel" for="employee-earning-effectiveDate">
                     Effective Date
                   </Label>
-                  <AvField id="employee-earning-effectiveDate" type="date" className="form-control" name="effectiveDate" />
+                  <AvField
+                    id="employee-earning-effectiveDate"
+                    type="date"
+                    className="form-control"
+                    name="effectiveDate"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="basicLabel" for="employee-earning-basic">
