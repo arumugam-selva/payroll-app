@@ -1,7 +1,7 @@
 entity Employee {
 	id Integer,
-	org String,
-	status String
+	org Organization,
+	status String required
 }
 entity EmployeeDetails {
     id Integer,
@@ -19,7 +19,7 @@ entity EmployeeDetails {
 }
 entity EmployeeEarning {
     id Integer,
-    effectiveDate LocalDate,
+    effectiveDate LocalDate required,
     basic Long,
     hra Long,
     conveyance Long,
@@ -29,16 +29,16 @@ entity EmployeeEarning {
 }
 entity EmployeeDeductions {
     id Integer,
-    effectiveDate LocalDate,
+    effectiveDate LocalDate required,
     pf Long,
     profTax Long,
     incomeTax Long,
     lop Long
 }
 entity EmployeeTimeSheet {
-    id Integer,
-    month Integer,
-    year Integer,
+    id Integer required,
+    month Integer required minlength(1) maxlength(12),
+    year Integer required minlength(2016) maxlength(3000),
     noOfWorkingDays Long,
     noOfLeavs Long,
     noOfLop Long,
@@ -51,7 +51,9 @@ relationship ManyToOne {
     EmployeeTimeSheet{employeeId} to Employee,
 }
 
-
+enum Organization {
+    GQ,BZ
+}
 // Set pagination options
 paginate Employee, EmployeeDetails, EmployeeEarning,EmployeeDeductions ,EmployeeTimeSheet  with infinite-scroll
 
