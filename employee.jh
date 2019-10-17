@@ -19,7 +19,7 @@ entity EmployeeDetails {
 }
 entity EmployeeEarning {
     id Integer,
-    effectiveDate Integer,
+    effectiveDate LocalDate,
     basic Long,
     hra Long,
     conveyance Long,
@@ -29,7 +29,7 @@ entity EmployeeEarning {
 }
 entity EmployeeDeductions {
     id Integer,
-    effectiveDate Integer,
+    effectiveDate LocalDate,
     pf Long,
     profTax Long,
     incomeTax Long,
