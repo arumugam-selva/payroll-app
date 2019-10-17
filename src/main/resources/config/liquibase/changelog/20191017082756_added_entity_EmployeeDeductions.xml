@@ -17,7 +17,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="effective_date" type="date">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="pf" type="bigint">
                 <constraints nullable="true" />

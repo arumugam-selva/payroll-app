@@ -168,6 +168,24 @@ public class EmployeeDeductionsResourceIT {
 
     @Test
     @Transactional
+    public void checkEffectiveDateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeDeductionsRepository.findAll().size();
+        // set the field null
+        employeeDeductions.setEffectiveDate(null);
+
+        // Create the EmployeeDeductions, which fails.
+
+        restEmployeeDeductionsMockMvc.perform(post("/api/employee-deductions")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(employeeDeductions)))
+            .andExpect(status().isBadRequest());
+
+        List<EmployeeDeductions> employeeDeductionsList = employeeDeductionsRepository.findAll();
+        assertThat(employeeDeductionsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEmployeeDeductions() throws Exception {
         // Initialize the database
         employeeDeductionsRepository.saveAndFlush(employeeDeductions);

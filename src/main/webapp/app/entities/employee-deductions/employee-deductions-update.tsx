@@ -91,7 +91,15 @@ export class EmployeeDeductionsUpdate extends React.Component<IEmployeeDeduction
                   <Label id="effectiveDateLabel" for="employee-deductions-effectiveDate">
                     Effective Date
                   </Label>
-                  <AvField id="employee-deductions-effectiveDate" type="date" className="form-control" name="effectiveDate" />
+                  <AvField
+                    id="employee-deductions-effectiveDate"
+                    type="date"
+                    className="form-control"
+                    name="effectiveDate"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="pfLabel" for="employee-deductions-pf">

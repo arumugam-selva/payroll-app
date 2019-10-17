@@ -3,7 +3,10 @@
     "fields": [
         {
             "fieldName": "effectiveDate",
-            "fieldType": "LocalDate"
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "pf",

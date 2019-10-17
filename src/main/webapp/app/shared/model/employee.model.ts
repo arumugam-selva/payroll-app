@@ -1,6 +1,8 @@
+import { Organization } from 'app/shared/model/enumerations/organization.model';
+
 export interface IEmployee {
   id?: number;
-  org?: string;
+  org?: Organization;
   status?: string;
 }
 

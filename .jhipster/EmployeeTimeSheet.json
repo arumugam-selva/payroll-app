@@ -3,11 +3,25 @@
     "fields": [
         {
             "fieldName": "month",
-            "fieldType": "Integer"
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 1,
+            "fieldValidateRulesMax": 12
         },
         {
             "fieldName": "year",
-            "fieldType": "Integer"
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 2016,
+            "fieldValidateRulesMax": 3000
         },
         {
             "fieldName": "noOfWorkingDays",

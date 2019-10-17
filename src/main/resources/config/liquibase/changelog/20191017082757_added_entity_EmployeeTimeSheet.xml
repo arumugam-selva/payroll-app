@@ -17,10 +17,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="month" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="year" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="no_of_working_days" type="bigint">
                 <constraints nullable="true" />

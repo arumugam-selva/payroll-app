@@ -37,8 +37,8 @@ public class EmployeeTimeSheetResourceIT {
     private static final Integer DEFAULT_MONTH = 1;
     private static final Integer UPDATED_MONTH = 2;
 
-    private static final Integer DEFAULT_YEAR = 1;
-    private static final Integer UPDATED_YEAR = 2;
+    private static final Integer DEFAULT_YEAR = 2016;
+    private static final Integer UPDATED_YEAR = 2017;
 
     private static final Long DEFAULT_NO_OF_WORKING_DAYS = 1L;
     private static final Long UPDATED_NO_OF_WORKING_DAYS = 2L;
@@ -169,6 +169,42 @@ public class EmployeeTimeSheetResourceIT {
         assertThat(employeeTimeSheetList).hasSize(databaseSizeBeforeCreate);
     }
 
+
+    @Test
+    @Transactional
+    public void checkMonthIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeTimeSheetRepository.findAll().size();
+        // set the field null
+        employeeTimeSheet.setMonth(null);
+
+        // Create the EmployeeTimeSheet, which fails.
+
+        restEmployeeTimeSheetMockMvc.perform(post("/api/employee-time-sheets")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(employeeTimeSheet)))
+            .andExpect(status().isBadRequest());
+
+        List<EmployeeTimeSheet> employeeTimeSheetList = employeeTimeSheetRepository.findAll();
+        assertThat(employeeTimeSheetList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkYearIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeTimeSheetRepository.findAll().size();
+        // set the field null
+        employeeTimeSheet.setYear(null);
+
+        // Create the EmployeeTimeSheet, which fails.
+
+        restEmployeeTimeSheetMockMvc.perform(post("/api/employee-time-sheets")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(employeeTimeSheet)))
+            .andExpect(status().isBadRequest());
+
+        List<EmployeeTimeSheet> employeeTimeSheetList = employeeTimeSheetRepository.findAll();
+        assertThat(employeeTimeSheetList).hasSize(databaseSizeBeforeTest);
+    }
 
     @Test
     @Transactional

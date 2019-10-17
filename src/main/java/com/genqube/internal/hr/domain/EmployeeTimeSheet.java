@@ -2,6 +2,7 @@ package com.genqube.internal.hr.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -18,10 +19,16 @@ public class EmployeeTimeSheet implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "month")
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 12)
+    @Column(name = "month", nullable = false)
     private Integer month;
 
-    @Column(name = "year")
+    @NotNull
+    @Min(value = 2016)
+    @Max(value = 3000)
+    @Column(name = "year", nullable = false)
     private Integer year;
 
     @Column(name = "no_of_working_days")

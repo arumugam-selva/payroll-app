@@ -85,13 +85,29 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
                   <Label id="orgLabel" for="employee-org">
                     Org
                   </Label>
-                  <AvField id="employee-org" type="text" name="org" />
+                  <AvInput
+                    id="employee-org"
+                    type="select"
+                    className="form-control"
+                    name="org"
+                    value={(!isNew && employeeEntity.org) || 'GQ'}
+                  >
+                    <option value="GQ">GQ</option>
+                    <option value="BZ">BZ</option>
+                  </AvInput>
                 </AvGroup>
                 <AvGroup>
                   <Label id="statusLabel" for="employee-status">
                     Status
                   </Label>
-                  <AvField id="employee-status" type="text" name="status" />
+                  <AvField
+                    id="employee-status"
+                    type="text"
+                    name="status"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' }
+                    }}
+                  />
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/employee" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />

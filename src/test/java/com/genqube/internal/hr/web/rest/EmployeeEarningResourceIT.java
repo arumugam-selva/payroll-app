@@ -180,6 +180,24 @@ public class EmployeeEarningResourceIT {
 
     @Test
     @Transactional
+    public void checkEffectiveDateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeEarningRepository.findAll().size();
+        // set the field null
+        employeeEarning.setEffectiveDate(null);
+
+        // Create the EmployeeEarning, which fails.
+
+        restEmployeeEarningMockMvc.perform(post("/api/employee-earnings")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(employeeEarning)))
+            .andExpect(status().isBadRequest());
+
+        List<EmployeeEarning> employeeEarningList = employeeEarningRepository.findAll();
+        assertThat(employeeEarningList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEmployeeEarnings() throws Exception {
         // Initialize the database
         employeeEarningRepository.saveAndFlush(employeeEarning);
