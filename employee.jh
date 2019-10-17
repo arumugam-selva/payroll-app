@@ -1,0 +1,69 @@
+entity Employee {
+	id Integer,
+	org String,
+	status String
+}
+entity EmployeeDetails {
+    id Integer,
+    employeeId String,
+    email String,
+    name String,
+    designation String,
+    department Integer,
+    dob LocalDate,
+    joiningDate LocalDate,
+    panNo String,
+    bankAccountNo String,
+    gender String,
+    bank String,
+    location String
+}
+entity EmployeeEarning {
+    id Integer,
+    employeeId String,
+    effectiveDate Integer,
+    basic Long,
+    hra Long,
+    conveyance Long,
+    leaveEncash Long,
+    specialAllowance Long,
+    reimbursement Long
+}
+entity EmployeeDeductions {
+    id Integer,
+    employeeId String,
+    effectiveDate Integer,
+    pf Long,
+    profTax Long,
+    incomeTax Long,
+    lop Long
+}
+entity EmployeeTimeSheet {
+    id Integer,
+    employeeId String,
+    month Integer,
+    year Integer,
+    noOfWorkingDays Long,
+    noOfLeavs Long,
+    noOfLop Long,
+    noOfArearDays Long
+}
+relationship ManyToOne {
+	EmployeeDetails{employeeId} to Employee,
+    EmployeeEarning{employeeId} to Employee,
+    EmployeeDeductions{employeeId} to Employee,
+    EmployeeTimeSheet{employeeId} to Employee,
+}
+
+
+// Set pagination options
+paginate Employee, EmployeeDetails, EmployeeEarning,EmployeeDeductions ,EmployeeTimeSheet  with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
