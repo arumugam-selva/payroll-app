@@ -91,7 +91,7 @@ export class EmployeeTimeSheetUpdate extends React.Component<IEmployeeTimeSheetU
                   <Label id="employeeIdLabel" for="employee-time-sheet-employeeId">
                     Employee Id
                   </Label>
-                  <AvField id="employee-time-sheet-employeeId" type="text" name="employeeId" />
+                  <AvField id="employee-time-sheet-employeeId" type="string" className="form-control" name="employeeId" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="monthLabel" for="employee-time-sheet-month">

@@ -19,7 +19,7 @@ public class EmployeeDeductions implements Serializable {
     private Long id;
 
     @Column(name = "employee_id")
-    private String employeeId;
+    private Integer employeeId;
 
     @Column(name = "effective_date")
     private Integer effectiveDate;
@@ -49,16 +49,16 @@ public class EmployeeDeductions implements Serializable {
         this.id = id;
     }
 
-    public String getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public EmployeeDeductions employeeId(String employeeId) {
+    public EmployeeDeductions employeeId(Integer employeeId) {
         this.employeeId = employeeId;
         return this;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -161,7 +161,7 @@ public class EmployeeDeductions implements Serializable {
     public String toString() {
         return "EmployeeDeductions{" +
             "id=" + getId() +
-            ", employeeId='" + getEmployeeId() + "'" +
+            ", employeeId=" + getEmployeeId() +
             ", effectiveDate=" + getEffectiveDate() +
             ", pf=" + getPf() +
             ", profTax=" + getProfTax() +

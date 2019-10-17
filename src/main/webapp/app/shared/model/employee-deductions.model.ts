@@ -2,7 +2,7 @@ import { IEmployee } from 'app/shared/model/employee.model';
 
 export interface IEmployeeDeductions {
   id?: number;
-  employeeId?: string;
+  employeeId?: number;
   effectiveDate?: number;
   pf?: number;
   profTax?: number;

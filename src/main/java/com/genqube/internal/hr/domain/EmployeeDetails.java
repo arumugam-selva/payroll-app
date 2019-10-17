@@ -20,7 +20,7 @@ public class EmployeeDetails implements Serializable {
     private Long id;
 
     @Column(name = "employee_id")
-    private String employeeId;
+    private Integer employeeId;
 
     @Column(name = "email")
     private String email;
@@ -68,16 +68,16 @@ public class EmployeeDetails implements Serializable {
         this.id = id;
     }
 
-    public String getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public EmployeeDetails employeeId(String employeeId) {
+    public EmployeeDetails employeeId(Integer employeeId) {
         this.employeeId = employeeId;
         return this;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -258,7 +258,7 @@ public class EmployeeDetails implements Serializable {
     public String toString() {
         return "EmployeeDetails{" +
             "id=" + getId() +
-            ", employeeId='" + getEmployeeId() + "'" +
+            ", employeeId=" + getEmployeeId() +
             ", email='" + getEmail() + "'" +
             ", name='" + getName() + "'" +
             ", designation='" + getDesignation() + "'" +

@@ -34,8 +34,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeEarningResourceIT {
 
-    private static final String DEFAULT_EMPLOYEE_ID = "AAAAAAAAAA";
-    private static final String UPDATED_EMPLOYEE_ID = "BBBBBBBBBB";
+    private static final Integer DEFAULT_EMPLOYEE_ID = 1;
+    private static final Integer UPDATED_EMPLOYEE_ID = 2;
 
     private static final Integer DEFAULT_EFFECTIVE_DATE = 1;
     private static final Integer UPDATED_EFFECTIVE_DATE = 2;
