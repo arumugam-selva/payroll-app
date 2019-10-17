@@ -19,7 +19,7 @@ public class EmployeeTimeSheet implements Serializable {
     private Long id;
 
     @Column(name = "employee_id")
-    private String employeeId;
+    private Integer employeeId;
 
     @Column(name = "month")
     private Integer month;
@@ -52,16 +52,16 @@ public class EmployeeTimeSheet implements Serializable {
         this.id = id;
     }
 
-    public String getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public EmployeeTimeSheet employeeId(String employeeId) {
+    public EmployeeTimeSheet employeeId(Integer employeeId) {
         this.employeeId = employeeId;
         return this;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -177,7 +177,7 @@ public class EmployeeTimeSheet implements Serializable {
     public String toString() {
         return "EmployeeTimeSheet{" +
             "id=" + getId() +
-            ", employeeId='" + getEmployeeId() + "'" +
+            ", employeeId=" + getEmployeeId() +
             ", month=" + getMonth() +
             ", year=" + getYear() +
             ", noOfWorkingDays=" + getNoOfWorkingDays() +

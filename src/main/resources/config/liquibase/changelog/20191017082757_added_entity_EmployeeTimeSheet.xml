@@ -16,7 +16,7 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="employee_id" type="varchar(255)">
+            <column name="employee_id" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="month" type="integer">
@@ -63,7 +63,7 @@
                   separator=";"
                   tableName="employee_time_sheet">
             <column name="id" type="numeric"/>
-            <column name="employee_id" type="string"/>
+            <column name="employee_id" type="numeric"/>
             <column name="month" type="numeric"/>
             <column name="year" type="numeric"/>
             <column name="no_of_working_days" type="numeric"/>

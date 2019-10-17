@@ -3,7 +3,7 @@
     "fields": [
         {
             "fieldName": "employeeId",
-            "fieldType": "String"
+            "fieldType": "Integer"
         },
         {
             "fieldName": "email",

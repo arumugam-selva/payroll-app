@@ -2,7 +2,7 @@ import { IEmployee } from 'app/shared/model/employee.model';
 
 export interface IEmployeeTimeSheet {
   id?: number;
-  employeeId?: string;
+  employeeId?: number;
   month?: number;
   year?: number;
   noOfWorkingDays?: number;
