@@ -91,7 +91,7 @@ export class EmployeeEarningUpdate extends React.Component<IEmployeeEarningUpdat
                   <Label id="effectiveDateLabel" for="employee-earning-effectiveDate">
                     Effective Date
                   </Label>
-                  <AvField id="employee-earning-effectiveDate" type="string" className="form-control" name="effectiveDate" />
+                  <AvField id="employee-earning-effectiveDate" type="date" className="form-control" name="effectiveDate" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="basicLabel" for="employee-earning-basic">

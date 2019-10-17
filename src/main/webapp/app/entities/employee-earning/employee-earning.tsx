@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-import { ICrudGetAllAction, getSortState, IPaginationBaseState } from 'react-jhipster';
+import { ICrudGetAllAction, TextFormat, getSortState, IPaginationBaseState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
@@ -123,7 +123,9 @@ export class EmployeeEarning extends React.Component<IEmployeeEarningProps, IEmp
                           {employeeEarning.id}
                         </Button>
                       </td>
-                      <td>{employeeEarning.effectiveDate}</td>
+                      <td>
+                        <TextFormat type="date" value={employeeEarning.effectiveDate} format={APP_LOCAL_DATE_FORMAT} />
+                      </td>
                       <td>{employeeEarning.basic}</td>
                       <td>{employeeEarning.hra}</td>
                       <td>{employeeEarning.conveyance}</td>

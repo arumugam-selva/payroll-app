@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * A EmployeeEarning.
@@ -19,7 +20,7 @@ public class EmployeeEarning implements Serializable {
     private Long id;
 
     @Column(name = "effective_date")
-    private Integer effectiveDate;
+    private LocalDate effectiveDate;
 
     @Column(name = "basic")
     private Long basic;
@@ -52,16 +53,16 @@ public class EmployeeEarning implements Serializable {
         this.id = id;
     }
 
-    public Integer getEffectiveDate() {
+    public LocalDate getEffectiveDate() {
         return effectiveDate;
     }
 
-    public EmployeeEarning effectiveDate(Integer effectiveDate) {
+    public EmployeeEarning effectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
         return this;
     }
 
-    public void setEffectiveDate(Integer effectiveDate) {
+    public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
@@ -177,7 +178,7 @@ public class EmployeeEarning implements Serializable {
     public String toString() {
         return "EmployeeEarning{" +
             "id=" + getId() +
-            ", effectiveDate=" + getEffectiveDate() +
+            ", effectiveDate='" + getEffectiveDate() + "'" +
             ", basic=" + getBasic() +
             ", hra=" + getHra() +
             ", conveyance=" + getConveyance() +

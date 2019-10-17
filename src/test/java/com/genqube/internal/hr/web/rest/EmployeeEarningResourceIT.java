@@ -20,6 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static com.genqube.internal.hr.web.rest.TestUtil.createFormattingConversionService;
@@ -34,8 +36,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeEarningResourceIT {
 
-    private static final Integer DEFAULT_EFFECTIVE_DATE = 1;
-    private static final Integer UPDATED_EFFECTIVE_DATE = 2;
+    private static final LocalDate DEFAULT_EFFECTIVE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_EFFECTIVE_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final Long DEFAULT_BASIC = 1L;
     private static final Long UPDATED_BASIC = 2L;
@@ -187,7 +189,7 @@ public class EmployeeEarningResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeEarning.getId().intValue())))
-            .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE)))
+            .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE.toString())))
             .andExpect(jsonPath("$.[*].basic").value(hasItem(DEFAULT_BASIC.intValue())))
             .andExpect(jsonPath("$.[*].hra").value(hasItem(DEFAULT_HRA.intValue())))
             .andExpect(jsonPath("$.[*].conveyance").value(hasItem(DEFAULT_CONVEYANCE.intValue())))
@@ -207,7 +209,7 @@ public class EmployeeEarningResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeEarning.getId().intValue()))
-            .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE))
+            .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE.toString()))
             .andExpect(jsonPath("$.basic").value(DEFAULT_BASIC.intValue()))
             .andExpect(jsonPath("$.hra").value(DEFAULT_HRA.intValue()))
             .andExpect(jsonPath("$.conveyance").value(DEFAULT_CONVEYANCE.intValue()))

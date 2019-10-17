@@ -20,6 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static com.genqube.internal.hr.web.rest.TestUtil.createFormattingConversionService;
@@ -34,8 +36,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeDeductionsResourceIT {
 
-    private static final Integer DEFAULT_EFFECTIVE_DATE = 1;
-    private static final Integer UPDATED_EFFECTIVE_DATE = 2;
+    private static final LocalDate DEFAULT_EFFECTIVE_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_EFFECTIVE_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final Long DEFAULT_PF = 1L;
     private static final Long UPDATED_PF = 2L;
@@ -175,7 +177,7 @@ public class EmployeeDeductionsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeDeductions.getId().intValue())))
-            .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE)))
+            .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE.toString())))
             .andExpect(jsonPath("$.[*].pf").value(hasItem(DEFAULT_PF.intValue())))
             .andExpect(jsonPath("$.[*].profTax").value(hasItem(DEFAULT_PROF_TAX.intValue())))
             .andExpect(jsonPath("$.[*].incomeTax").value(hasItem(DEFAULT_INCOME_TAX.intValue())))
@@ -193,7 +195,7 @@ public class EmployeeDeductionsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeDeductions.getId().intValue()))
-            .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE))
+            .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE.toString()))
             .andExpect(jsonPath("$.pf").value(DEFAULT_PF.intValue()))
             .andExpect(jsonPath("$.profTax").value(DEFAULT_PROF_TAX.intValue()))
             .andExpect(jsonPath("$.incomeTax").value(DEFAULT_INCOME_TAX.intValue()))

@@ -1,8 +1,9 @@
+import { Moment } from 'moment';
 import { IEmployee } from 'app/shared/model/employee.model';
 
 export interface IEmployeeEarning {
   id?: number;
-  effectiveDate?: number;
+  effectiveDate?: Moment;
   basic?: number;
   hra?: number;
   conveyance?: number;
