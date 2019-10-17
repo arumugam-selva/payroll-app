@@ -16,9 +16,6 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="employee_id" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="effective_date" type="integer">
                 <constraints nullable="true" />
             </column>
@@ -66,7 +63,6 @@
                   separator=";"
                   tableName="employee_earning">
             <column name="id" type="numeric"/>
-            <column name="employee_id" type="numeric"/>
             <column name="effective_date" type="numeric"/>
             <column name="basic" type="numeric"/>
             <column name="hra" type="numeric"/>

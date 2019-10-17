@@ -34,9 +34,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeTimeSheetResourceIT {
 
-    private static final Integer DEFAULT_EMPLOYEE_ID = 1;
-    private static final Integer UPDATED_EMPLOYEE_ID = 2;
-
     private static final Integer DEFAULT_MONTH = 1;
     private static final Integer UPDATED_MONTH = 2;
 
@@ -100,7 +97,6 @@ public class EmployeeTimeSheetResourceIT {
      */
     public static EmployeeTimeSheet createEntity(EntityManager em) {
         EmployeeTimeSheet employeeTimeSheet = new EmployeeTimeSheet()
-            .employeeId(DEFAULT_EMPLOYEE_ID)
             .month(DEFAULT_MONTH)
             .year(DEFAULT_YEAR)
             .noOfWorkingDays(DEFAULT_NO_OF_WORKING_DAYS)
@@ -117,7 +113,6 @@ public class EmployeeTimeSheetResourceIT {
      */
     public static EmployeeTimeSheet createUpdatedEntity(EntityManager em) {
         EmployeeTimeSheet employeeTimeSheet = new EmployeeTimeSheet()
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .month(UPDATED_MONTH)
             .year(UPDATED_YEAR)
             .noOfWorkingDays(UPDATED_NO_OF_WORKING_DAYS)
@@ -147,7 +142,6 @@ public class EmployeeTimeSheetResourceIT {
         List<EmployeeTimeSheet> employeeTimeSheetList = employeeTimeSheetRepository.findAll();
         assertThat(employeeTimeSheetList).hasSize(databaseSizeBeforeCreate + 1);
         EmployeeTimeSheet testEmployeeTimeSheet = employeeTimeSheetList.get(employeeTimeSheetList.size() - 1);
-        assertThat(testEmployeeTimeSheet.getEmployeeId()).isEqualTo(DEFAULT_EMPLOYEE_ID);
         assertThat(testEmployeeTimeSheet.getMonth()).isEqualTo(DEFAULT_MONTH);
         assertThat(testEmployeeTimeSheet.getYear()).isEqualTo(DEFAULT_YEAR);
         assertThat(testEmployeeTimeSheet.getNoOfWorkingDays()).isEqualTo(DEFAULT_NO_OF_WORKING_DAYS);
@@ -187,7 +181,6 @@ public class EmployeeTimeSheetResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeTimeSheet.getId().intValue())))
-            .andExpect(jsonPath("$.[*].employeeId").value(hasItem(DEFAULT_EMPLOYEE_ID)))
             .andExpect(jsonPath("$.[*].month").value(hasItem(DEFAULT_MONTH)))
             .andExpect(jsonPath("$.[*].year").value(hasItem(DEFAULT_YEAR)))
             .andExpect(jsonPath("$.[*].noOfWorkingDays").value(hasItem(DEFAULT_NO_OF_WORKING_DAYS.intValue())))
@@ -207,7 +200,6 @@ public class EmployeeTimeSheetResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeTimeSheet.getId().intValue()))
-            .andExpect(jsonPath("$.employeeId").value(DEFAULT_EMPLOYEE_ID))
             .andExpect(jsonPath("$.month").value(DEFAULT_MONTH))
             .andExpect(jsonPath("$.year").value(DEFAULT_YEAR))
             .andExpect(jsonPath("$.noOfWorkingDays").value(DEFAULT_NO_OF_WORKING_DAYS.intValue()))
@@ -237,7 +229,6 @@ public class EmployeeTimeSheetResourceIT {
         // Disconnect from session so that the updates on updatedEmployeeTimeSheet are not directly saved in db
         em.detach(updatedEmployeeTimeSheet);
         updatedEmployeeTimeSheet
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .month(UPDATED_MONTH)
             .year(UPDATED_YEAR)
             .noOfWorkingDays(UPDATED_NO_OF_WORKING_DAYS)
@@ -254,7 +245,6 @@ public class EmployeeTimeSheetResourceIT {
         List<EmployeeTimeSheet> employeeTimeSheetList = employeeTimeSheetRepository.findAll();
         assertThat(employeeTimeSheetList).hasSize(databaseSizeBeforeUpdate);
         EmployeeTimeSheet testEmployeeTimeSheet = employeeTimeSheetList.get(employeeTimeSheetList.size() - 1);
-        assertThat(testEmployeeTimeSheet.getEmployeeId()).isEqualTo(UPDATED_EMPLOYEE_ID);
         assertThat(testEmployeeTimeSheet.getMonth()).isEqualTo(UPDATED_MONTH);
         assertThat(testEmployeeTimeSheet.getYear()).isEqualTo(UPDATED_YEAR);
         assertThat(testEmployeeTimeSheet.getNoOfWorkingDays()).isEqualTo(UPDATED_NO_OF_WORKING_DAYS);

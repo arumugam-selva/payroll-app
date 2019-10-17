@@ -18,9 +18,6 @@ public class EmployeeEarning implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employee_id")
-    private Integer employeeId;
-
     @Column(name = "effective_date")
     private Integer effectiveDate;
 
@@ -53,19 +50,6 @@ public class EmployeeEarning implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public EmployeeEarning employeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-        return this;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
     }
 
     public Integer getEffectiveDate() {
@@ -193,7 +177,6 @@ public class EmployeeEarning implements Serializable {
     public String toString() {
         return "EmployeeEarning{" +
             "id=" + getId() +
-            ", employeeId=" + getEmployeeId() +
             ", effectiveDate=" + getEffectiveDate() +
             ", basic=" + getBasic() +
             ", hra=" + getHra() +

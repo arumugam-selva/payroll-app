@@ -88,9 +88,6 @@ export class EmployeeDeductions extends React.Component<IEmployeeDeductionsProps
                     <th className="hand" onClick={this.sort('id')}>
                       ID <FontAwesomeIcon icon="sort" />
                     </th>
-                    <th className="hand" onClick={this.sort('employeeId')}>
-                      Employee Id <FontAwesomeIcon icon="sort" />
-                    </th>
                     <th className="hand" onClick={this.sort('effectiveDate')}>
                       Effective Date <FontAwesomeIcon icon="sort" />
                     </th>
@@ -120,7 +117,6 @@ export class EmployeeDeductions extends React.Component<IEmployeeDeductionsProps
                           {employeeDeductions.id}
                         </Button>
                       </td>
-                      <td>{employeeDeductions.employeeId}</td>
                       <td>{employeeDeductions.effectiveDate}</td>
                       <td>{employeeDeductions.pf}</td>
                       <td>{employeeDeductions.profTax}</td>

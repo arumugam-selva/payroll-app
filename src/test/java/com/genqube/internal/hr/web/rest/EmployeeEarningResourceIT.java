@@ -34,9 +34,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeEarningResourceIT {
 
-    private static final Integer DEFAULT_EMPLOYEE_ID = 1;
-    private static final Integer UPDATED_EMPLOYEE_ID = 2;
-
     private static final Integer DEFAULT_EFFECTIVE_DATE = 1;
     private static final Integer UPDATED_EFFECTIVE_DATE = 2;
 
@@ -103,7 +100,6 @@ public class EmployeeEarningResourceIT {
      */
     public static EmployeeEarning createEntity(EntityManager em) {
         EmployeeEarning employeeEarning = new EmployeeEarning()
-            .employeeId(DEFAULT_EMPLOYEE_ID)
             .effectiveDate(DEFAULT_EFFECTIVE_DATE)
             .basic(DEFAULT_BASIC)
             .hra(DEFAULT_HRA)
@@ -121,7 +117,6 @@ public class EmployeeEarningResourceIT {
      */
     public static EmployeeEarning createUpdatedEntity(EntityManager em) {
         EmployeeEarning employeeEarning = new EmployeeEarning()
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .effectiveDate(UPDATED_EFFECTIVE_DATE)
             .basic(UPDATED_BASIC)
             .hra(UPDATED_HRA)
@@ -152,7 +147,6 @@ public class EmployeeEarningResourceIT {
         List<EmployeeEarning> employeeEarningList = employeeEarningRepository.findAll();
         assertThat(employeeEarningList).hasSize(databaseSizeBeforeCreate + 1);
         EmployeeEarning testEmployeeEarning = employeeEarningList.get(employeeEarningList.size() - 1);
-        assertThat(testEmployeeEarning.getEmployeeId()).isEqualTo(DEFAULT_EMPLOYEE_ID);
         assertThat(testEmployeeEarning.getEffectiveDate()).isEqualTo(DEFAULT_EFFECTIVE_DATE);
         assertThat(testEmployeeEarning.getBasic()).isEqualTo(DEFAULT_BASIC);
         assertThat(testEmployeeEarning.getHra()).isEqualTo(DEFAULT_HRA);
@@ -193,7 +187,6 @@ public class EmployeeEarningResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeEarning.getId().intValue())))
-            .andExpect(jsonPath("$.[*].employeeId").value(hasItem(DEFAULT_EMPLOYEE_ID)))
             .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE)))
             .andExpect(jsonPath("$.[*].basic").value(hasItem(DEFAULT_BASIC.intValue())))
             .andExpect(jsonPath("$.[*].hra").value(hasItem(DEFAULT_HRA.intValue())))
@@ -214,7 +207,6 @@ public class EmployeeEarningResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeEarning.getId().intValue()))
-            .andExpect(jsonPath("$.employeeId").value(DEFAULT_EMPLOYEE_ID))
             .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE))
             .andExpect(jsonPath("$.basic").value(DEFAULT_BASIC.intValue()))
             .andExpect(jsonPath("$.hra").value(DEFAULT_HRA.intValue()))
@@ -245,7 +237,6 @@ public class EmployeeEarningResourceIT {
         // Disconnect from session so that the updates on updatedEmployeeEarning are not directly saved in db
         em.detach(updatedEmployeeEarning);
         updatedEmployeeEarning
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .effectiveDate(UPDATED_EFFECTIVE_DATE)
             .basic(UPDATED_BASIC)
             .hra(UPDATED_HRA)
@@ -263,7 +254,6 @@ public class EmployeeEarningResourceIT {
         List<EmployeeEarning> employeeEarningList = employeeEarningRepository.findAll();
         assertThat(employeeEarningList).hasSize(databaseSizeBeforeUpdate);
         EmployeeEarning testEmployeeEarning = employeeEarningList.get(employeeEarningList.size() - 1);
-        assertThat(testEmployeeEarning.getEmployeeId()).isEqualTo(UPDATED_EMPLOYEE_ID);
         assertThat(testEmployeeEarning.getEffectiveDate()).isEqualTo(UPDATED_EFFECTIVE_DATE);
         assertThat(testEmployeeEarning.getBasic()).isEqualTo(UPDATED_BASIC);
         assertThat(testEmployeeEarning.getHra()).isEqualTo(UPDATED_HRA);

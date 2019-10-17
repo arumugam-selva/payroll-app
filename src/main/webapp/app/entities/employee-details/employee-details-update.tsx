@@ -88,12 +88,6 @@ export class EmployeeDetailsUpdate extends React.Component<IEmployeeDetailsUpdat
                   </AvGroup>
                 ) : null}
                 <AvGroup>
-                  <Label id="employeeIdLabel" for="employee-details-employeeId">
-                    Employee Id
-                  </Label>
-                  <AvField id="employee-details-employeeId" type="string" className="form-control" name="employeeId" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="emailLabel" for="employee-details-email">
                     Email
                   </Label>

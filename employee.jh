@@ -5,7 +5,6 @@ entity Employee {
 }
 entity EmployeeDetails {
     id Integer,
-    employeeId Integer,
     email String,
     name String,
     designation String,
@@ -20,7 +19,6 @@ entity EmployeeDetails {
 }
 entity EmployeeEarning {
     id Integer,
-    employeeId Integer,
     effectiveDate Integer,
     basic Long,
     hra Long,
@@ -31,7 +29,6 @@ entity EmployeeEarning {
 }
 entity EmployeeDeductions {
     id Integer,
-    employeeId Integer,
     effectiveDate Integer,
     pf Long,
     profTax Long,
@@ -40,7 +37,6 @@ entity EmployeeDeductions {
 }
 entity EmployeeTimeSheet {
     id Integer,
-    employeeId Integer,
     month Integer,
     year Integer,
     noOfWorkingDays Long,

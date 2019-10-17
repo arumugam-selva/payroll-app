@@ -27,10 +27,6 @@ export class EmployeeEarningDetail extends React.Component<IEmployeeEarningDetai
           </h2>
           <dl className="jh-entity-details">
             <dt>
-              <span id="employeeId">Employee Id</span>
-            </dt>
-            <dd>{employeeEarningEntity.employeeId}</dd>
-            <dt>
               <span id="effectiveDate">Effective Date</span>
             </dt>
             <dd>{employeeEarningEntity.effectiveDate}</dd>

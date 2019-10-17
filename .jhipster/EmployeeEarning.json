@@ -2,10 +2,6 @@
     "name": "EmployeeEarning",
     "fields": [
         {
-            "fieldName": "employeeId",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "effectiveDate",
             "fieldType": "Integer"
         },

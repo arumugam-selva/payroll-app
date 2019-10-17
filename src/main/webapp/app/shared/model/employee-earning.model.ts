@@ -2,7 +2,6 @@ import { IEmployee } from 'app/shared/model/employee.model';
 
 export interface IEmployeeEarning {
   id?: number;
-  employeeId?: number;
   effectiveDate?: number;
   basic?: number;
   hra?: number;

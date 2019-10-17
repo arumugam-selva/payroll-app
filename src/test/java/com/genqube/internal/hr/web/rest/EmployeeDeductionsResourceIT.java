@@ -34,9 +34,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeDeductionsResourceIT {
 
-    private static final Integer DEFAULT_EMPLOYEE_ID = 1;
-    private static final Integer UPDATED_EMPLOYEE_ID = 2;
-
     private static final Integer DEFAULT_EFFECTIVE_DATE = 1;
     private static final Integer UPDATED_EFFECTIVE_DATE = 2;
 
@@ -97,7 +94,6 @@ public class EmployeeDeductionsResourceIT {
      */
     public static EmployeeDeductions createEntity(EntityManager em) {
         EmployeeDeductions employeeDeductions = new EmployeeDeductions()
-            .employeeId(DEFAULT_EMPLOYEE_ID)
             .effectiveDate(DEFAULT_EFFECTIVE_DATE)
             .pf(DEFAULT_PF)
             .profTax(DEFAULT_PROF_TAX)
@@ -113,7 +109,6 @@ public class EmployeeDeductionsResourceIT {
      */
     public static EmployeeDeductions createUpdatedEntity(EntityManager em) {
         EmployeeDeductions employeeDeductions = new EmployeeDeductions()
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .effectiveDate(UPDATED_EFFECTIVE_DATE)
             .pf(UPDATED_PF)
             .profTax(UPDATED_PROF_TAX)
@@ -142,7 +137,6 @@ public class EmployeeDeductionsResourceIT {
         List<EmployeeDeductions> employeeDeductionsList = employeeDeductionsRepository.findAll();
         assertThat(employeeDeductionsList).hasSize(databaseSizeBeforeCreate + 1);
         EmployeeDeductions testEmployeeDeductions = employeeDeductionsList.get(employeeDeductionsList.size() - 1);
-        assertThat(testEmployeeDeductions.getEmployeeId()).isEqualTo(DEFAULT_EMPLOYEE_ID);
         assertThat(testEmployeeDeductions.getEffectiveDate()).isEqualTo(DEFAULT_EFFECTIVE_DATE);
         assertThat(testEmployeeDeductions.getPf()).isEqualTo(DEFAULT_PF);
         assertThat(testEmployeeDeductions.getProfTax()).isEqualTo(DEFAULT_PROF_TAX);
@@ -181,7 +175,6 @@ public class EmployeeDeductionsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeDeductions.getId().intValue())))
-            .andExpect(jsonPath("$.[*].employeeId").value(hasItem(DEFAULT_EMPLOYEE_ID)))
             .andExpect(jsonPath("$.[*].effectiveDate").value(hasItem(DEFAULT_EFFECTIVE_DATE)))
             .andExpect(jsonPath("$.[*].pf").value(hasItem(DEFAULT_PF.intValue())))
             .andExpect(jsonPath("$.[*].profTax").value(hasItem(DEFAULT_PROF_TAX.intValue())))
@@ -200,7 +193,6 @@ public class EmployeeDeductionsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeDeductions.getId().intValue()))
-            .andExpect(jsonPath("$.employeeId").value(DEFAULT_EMPLOYEE_ID))
             .andExpect(jsonPath("$.effectiveDate").value(DEFAULT_EFFECTIVE_DATE))
             .andExpect(jsonPath("$.pf").value(DEFAULT_PF.intValue()))
             .andExpect(jsonPath("$.profTax").value(DEFAULT_PROF_TAX.intValue()))
@@ -229,7 +221,6 @@ public class EmployeeDeductionsResourceIT {
         // Disconnect from session so that the updates on updatedEmployeeDeductions are not directly saved in db
         em.detach(updatedEmployeeDeductions);
         updatedEmployeeDeductions
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .effectiveDate(UPDATED_EFFECTIVE_DATE)
             .pf(UPDATED_PF)
             .profTax(UPDATED_PROF_TAX)
@@ -245,7 +236,6 @@ public class EmployeeDeductionsResourceIT {
         List<EmployeeDeductions> employeeDeductionsList = employeeDeductionsRepository.findAll();
         assertThat(employeeDeductionsList).hasSize(databaseSizeBeforeUpdate);
         EmployeeDeductions testEmployeeDeductions = employeeDeductionsList.get(employeeDeductionsList.size() - 1);
-        assertThat(testEmployeeDeductions.getEmployeeId()).isEqualTo(UPDATED_EMPLOYEE_ID);
         assertThat(testEmployeeDeductions.getEffectiveDate()).isEqualTo(UPDATED_EFFECTIVE_DATE);
         assertThat(testEmployeeDeductions.getPf()).isEqualTo(UPDATED_PF);
         assertThat(testEmployeeDeductions.getProfTax()).isEqualTo(UPDATED_PROF_TAX);
