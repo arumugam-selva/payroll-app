@@ -37,8 +37,8 @@ entity EmployeeDeductions {
 }
 entity EmployeeTimeSheet {
     id Integer required,
-    month Integer required minlength(1) maxlength(12),
-    year Integer required minlength(2016) maxlength(3000),
+    month Integer required min(1) max(12),
+    year Integer required min(2016) max(3000),
     noOfWorkingDays Long,
     noOfLeavs Long,
     noOfLop Long,
