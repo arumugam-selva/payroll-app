@@ -91,7 +91,7 @@ export class EmployeeDeductionsUpdate extends React.Component<IEmployeeDeduction
                   <Label id="effectiveDateLabel" for="employee-deductions-effectiveDate">
                     Effective Date
                   </Label>
-                  <AvField id="employee-deductions-effectiveDate" type="string" className="form-control" name="effectiveDate" />
+                  <AvField id="employee-deductions-effectiveDate" type="date" className="form-control" name="effectiveDate" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="pfLabel" for="employee-deductions-pf">

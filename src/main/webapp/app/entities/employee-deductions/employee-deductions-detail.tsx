@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-import { ICrudGetAction } from 'react-jhipster';
+import { ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
@@ -29,7 +29,9 @@ export class EmployeeDeductionsDetail extends React.Component<IEmployeeDeduction
             <dt>
               <span id="effectiveDate">Effective Date</span>
             </dt>
-            <dd>{employeeDeductionsEntity.effectiveDate}</dd>
+            <dd>
+              <TextFormat value={employeeDeductionsEntity.effectiveDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
+            </dd>
             <dt>
               <span id="pf">Pf</span>
             </dt>
