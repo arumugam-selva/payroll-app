@@ -3,7 +3,6 @@ import { IEmployee } from 'app/shared/model/employee.model';
 
 export interface IEmployeeDetails {
   id?: number;
-  employeeId?: number;
   email?: string;
   name?: string;
   designation?: string;

@@ -36,9 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PayRollApplicationApp.class)
 public class EmployeeDetailsResourceIT {
 
-    private static final Integer DEFAULT_EMPLOYEE_ID = 1;
-    private static final Integer UPDATED_EMPLOYEE_ID = 2;
-
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
 
@@ -117,7 +114,6 @@ public class EmployeeDetailsResourceIT {
      */
     public static EmployeeDetails createEntity(EntityManager em) {
         EmployeeDetails employeeDetails = new EmployeeDetails()
-            .employeeId(DEFAULT_EMPLOYEE_ID)
             .email(DEFAULT_EMAIL)
             .name(DEFAULT_NAME)
             .designation(DEFAULT_DESIGNATION)
@@ -139,7 +135,6 @@ public class EmployeeDetailsResourceIT {
      */
     public static EmployeeDetails createUpdatedEntity(EntityManager em) {
         EmployeeDetails employeeDetails = new EmployeeDetails()
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .email(UPDATED_EMAIL)
             .name(UPDATED_NAME)
             .designation(UPDATED_DESIGNATION)
@@ -174,7 +169,6 @@ public class EmployeeDetailsResourceIT {
         List<EmployeeDetails> employeeDetailsList = employeeDetailsRepository.findAll();
         assertThat(employeeDetailsList).hasSize(databaseSizeBeforeCreate + 1);
         EmployeeDetails testEmployeeDetails = employeeDetailsList.get(employeeDetailsList.size() - 1);
-        assertThat(testEmployeeDetails.getEmployeeId()).isEqualTo(DEFAULT_EMPLOYEE_ID);
         assertThat(testEmployeeDetails.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testEmployeeDetails.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testEmployeeDetails.getDesignation()).isEqualTo(DEFAULT_DESIGNATION);
@@ -219,7 +213,6 @@ public class EmployeeDetailsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employeeDetails.getId().intValue())))
-            .andExpect(jsonPath("$.[*].employeeId").value(hasItem(DEFAULT_EMPLOYEE_ID)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].designation").value(hasItem(DEFAULT_DESIGNATION)))
@@ -244,7 +237,6 @@ public class EmployeeDetailsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employeeDetails.getId().intValue()))
-            .andExpect(jsonPath("$.employeeId").value(DEFAULT_EMPLOYEE_ID))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.designation").value(DEFAULT_DESIGNATION))
@@ -279,7 +271,6 @@ public class EmployeeDetailsResourceIT {
         // Disconnect from session so that the updates on updatedEmployeeDetails are not directly saved in db
         em.detach(updatedEmployeeDetails);
         updatedEmployeeDetails
-            .employeeId(UPDATED_EMPLOYEE_ID)
             .email(UPDATED_EMAIL)
             .name(UPDATED_NAME)
             .designation(UPDATED_DESIGNATION)
@@ -301,7 +292,6 @@ public class EmployeeDetailsResourceIT {
         List<EmployeeDetails> employeeDetailsList = employeeDetailsRepository.findAll();
         assertThat(employeeDetailsList).hasSize(databaseSizeBeforeUpdate);
         EmployeeDetails testEmployeeDetails = employeeDetailsList.get(employeeDetailsList.size() - 1);
-        assertThat(testEmployeeDetails.getEmployeeId()).isEqualTo(UPDATED_EMPLOYEE_ID);
         assertThat(testEmployeeDetails.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testEmployeeDetails.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testEmployeeDetails.getDesignation()).isEqualTo(UPDATED_DESIGNATION);

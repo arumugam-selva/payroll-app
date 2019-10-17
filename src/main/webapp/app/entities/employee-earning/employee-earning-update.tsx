@@ -88,12 +88,6 @@ export class EmployeeEarningUpdate extends React.Component<IEmployeeEarningUpdat
                   </AvGroup>
                 ) : null}
                 <AvGroup>
-                  <Label id="employeeIdLabel" for="employee-earning-employeeId">
-                    Employee Id
-                  </Label>
-                  <AvField id="employee-earning-employeeId" type="string" className="form-control" name="employeeId" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="effectiveDateLabel" for="employee-earning-effectiveDate">
                     Effective Date
                   </Label>

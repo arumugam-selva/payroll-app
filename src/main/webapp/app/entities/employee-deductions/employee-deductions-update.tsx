@@ -88,12 +88,6 @@ export class EmployeeDeductionsUpdate extends React.Component<IEmployeeDeduction
                   </AvGroup>
                 ) : null}
                 <AvGroup>
-                  <Label id="employeeIdLabel" for="employee-deductions-employeeId">
-                    Employee Id
-                  </Label>
-                  <AvField id="employee-deductions-employeeId" type="string" className="form-control" name="employeeId" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="effectiveDateLabel" for="employee-deductions-effectiveDate">
                     Effective Date
                   </Label>

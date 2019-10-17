@@ -88,9 +88,6 @@ export class EmployeeEarning extends React.Component<IEmployeeEarningProps, IEmp
                     <th className="hand" onClick={this.sort('id')}>
                       ID <FontAwesomeIcon icon="sort" />
                     </th>
-                    <th className="hand" onClick={this.sort('employeeId')}>
-                      Employee Id <FontAwesomeIcon icon="sort" />
-                    </th>
                     <th className="hand" onClick={this.sort('effectiveDate')}>
                       Effective Date <FontAwesomeIcon icon="sort" />
                     </th>
@@ -126,7 +123,6 @@ export class EmployeeEarning extends React.Component<IEmployeeEarningProps, IEmp
                           {employeeEarning.id}
                         </Button>
                       </td>
-                      <td>{employeeEarning.employeeId}</td>
                       <td>{employeeEarning.effectiveDate}</td>
                       <td>{employeeEarning.basic}</td>
                       <td>{employeeEarning.hra}</td>

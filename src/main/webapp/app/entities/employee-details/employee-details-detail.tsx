@@ -27,10 +27,6 @@ export class EmployeeDetailsDetail extends React.Component<IEmployeeDetailsDetai
           </h2>
           <dl className="jh-entity-details">
             <dt>
-              <span id="employeeId">Employee Id</span>
-            </dt>
-            <dd>{employeeDetailsEntity.employeeId}</dd>
-            <dt>
               <span id="email">Email</span>
             </dt>
             <dd>{employeeDetailsEntity.email}</dd>

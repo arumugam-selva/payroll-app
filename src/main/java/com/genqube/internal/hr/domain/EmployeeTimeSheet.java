@@ -18,9 +18,6 @@ public class EmployeeTimeSheet implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employee_id")
-    private Integer employeeId;
-
     @Column(name = "month")
     private Integer month;
 
@@ -50,19 +47,6 @@ public class EmployeeTimeSheet implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public EmployeeTimeSheet employeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-        return this;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
     }
 
     public Integer getMonth() {
@@ -177,7 +161,6 @@ public class EmployeeTimeSheet implements Serializable {
     public String toString() {
         return "EmployeeTimeSheet{" +
             "id=" + getId() +
-            ", employeeId=" + getEmployeeId() +
             ", month=" + getMonth() +
             ", year=" + getYear() +
             ", noOfWorkingDays=" + getNoOfWorkingDays() +

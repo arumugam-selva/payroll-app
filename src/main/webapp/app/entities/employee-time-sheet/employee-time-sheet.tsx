@@ -88,9 +88,6 @@ export class EmployeeTimeSheet extends React.Component<IEmployeeTimeSheetProps, 
                     <th className="hand" onClick={this.sort('id')}>
                       ID <FontAwesomeIcon icon="sort" />
                     </th>
-                    <th className="hand" onClick={this.sort('employeeId')}>
-                      Employee Id <FontAwesomeIcon icon="sort" />
-                    </th>
                     <th className="hand" onClick={this.sort('month')}>
                       Month <FontAwesomeIcon icon="sort" />
                     </th>
@@ -123,7 +120,6 @@ export class EmployeeTimeSheet extends React.Component<IEmployeeTimeSheetProps, 
                           {employeeTimeSheet.id}
                         </Button>
                       </td>
-                      <td>{employeeTimeSheet.employeeId}</td>
                       <td>{employeeTimeSheet.month}</td>
                       <td>{employeeTimeSheet.year}</td>
                       <td>{employeeTimeSheet.noOfWorkingDays}</td>

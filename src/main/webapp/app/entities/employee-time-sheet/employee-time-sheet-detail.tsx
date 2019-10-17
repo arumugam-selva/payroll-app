@@ -27,10 +27,6 @@ export class EmployeeTimeSheetDetail extends React.Component<IEmployeeTimeSheetD
           </h2>
           <dl className="jh-entity-details">
             <dt>
-              <span id="employeeId">Employee Id</span>
-            </dt>
-            <dd>{employeeTimeSheetEntity.employeeId}</dd>
-            <dt>
               <span id="month">Month</span>
             </dt>
             <dd>{employeeTimeSheetEntity.month}</dd>

@@ -2,10 +2,6 @@
     "name": "EmployeeDetails",
     "fields": [
         {
-            "fieldName": "employeeId",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "email",
             "fieldType": "String"
         },

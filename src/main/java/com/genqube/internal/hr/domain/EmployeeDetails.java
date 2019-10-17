@@ -19,9 +19,6 @@ public class EmployeeDetails implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employee_id")
-    private Integer employeeId;
-
     @Column(name = "email")
     private String email;
 
@@ -66,19 +63,6 @@ public class EmployeeDetails implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public EmployeeDetails employeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-        return this;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
     }
 
     public String getEmail() {
@@ -258,7 +242,6 @@ public class EmployeeDetails implements Serializable {
     public String toString() {
         return "EmployeeDetails{" +
             "id=" + getId() +
-            ", employeeId=" + getEmployeeId() +
             ", email='" + getEmail() + "'" +
             ", name='" + getName() + "'" +
             ", designation='" + getDesignation() + "'" +

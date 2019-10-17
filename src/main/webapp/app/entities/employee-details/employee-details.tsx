@@ -88,9 +88,6 @@ export class EmployeeDetails extends React.Component<IEmployeeDetailsProps, IEmp
                     <th className="hand" onClick={this.sort('id')}>
                       ID <FontAwesomeIcon icon="sort" />
                     </th>
-                    <th className="hand" onClick={this.sort('employeeId')}>
-                      Employee Id <FontAwesomeIcon icon="sort" />
-                    </th>
                     <th className="hand" onClick={this.sort('email')}>
                       Email <FontAwesomeIcon icon="sort" />
                     </th>
@@ -138,7 +135,6 @@ export class EmployeeDetails extends React.Component<IEmployeeDetailsProps, IEmp
                           {employeeDetails.id}
                         </Button>
                       </td>
-                      <td>{employeeDetails.employeeId}</td>
                       <td>{employeeDetails.email}</td>
                       <td>{employeeDetails.name}</td>
                       <td>{employeeDetails.designation}</td>
