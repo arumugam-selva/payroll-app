@@ -8,7 +8,7 @@ entity EmployeeDetails {
     email String,
     name String,
     designation String,
-    department Integer,
+    department String,
     dob LocalDate,
     joiningDate LocalDate,
     panNo String,
@@ -45,10 +45,10 @@ entity EmployeeTimeSheet {
     noOfArearDays Long
 }
 relationship ManyToOne {
-	EmployeeDetails{employeeId} to Employee,
-    EmployeeEarning{employeeId} to Employee,
-    EmployeeDeductions{employeeId} to Employee,
-    EmployeeTimeSheet{employeeId} to Employee,
+	EmployeeDetails{employee} to Employee,
+    EmployeeEarning{employee} to Employee,
+    EmployeeDeductions{employee} to Employee,
+    EmployeeTimeSheet{employee} to Employee,
 }
 
 enum Organization {
