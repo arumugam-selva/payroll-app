@@ -56,8 +56,8 @@ export class EmployeeEarningDetail extends React.Component<IEmployeeEarningDetai
               <span id="reimbursement">Reimbursement</span>
             </dt>
             <dd>{employeeEarningEntity.reimbursement}</dd>
-            <dt>Employee Id</dt>
-            <dd>{employeeEarningEntity.employeeId ? employeeEarningEntity.employeeId.id : ''}</dd>
+            <dt>Employee</dt>
+            <dd>{employeeEarningEntity.employee ? employeeEarningEntity.employee.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/employee-earning" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

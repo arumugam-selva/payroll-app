@@ -74,8 +74,8 @@ export class EmployeeDetailsDetail extends React.Component<IEmployeeDetailsDetai
               <span id="location">Location</span>
             </dt>
             <dd>{employeeDetailsEntity.location}</dd>
-            <dt>Employee Id</dt>
-            <dd>{employeeDetailsEntity.employeeId ? employeeDetailsEntity.employeeId.id : ''}</dd>
+            <dt>Employee</dt>
+            <dd>{employeeDetailsEntity.employee ? employeeDetailsEntity.employee.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/employee-details" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

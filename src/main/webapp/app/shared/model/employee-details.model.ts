@@ -6,7 +6,7 @@ export interface IEmployeeDetails {
   email?: string;
   name?: string;
   designation?: string;
-  department?: number;
+  department?: string;
   dob?: Moment;
   joiningDate?: Moment;
   panNo?: string;
@@ -14,7 +14,7 @@ export interface IEmployeeDetails {
   gender?: string;
   bank?: string;
   location?: string;
-  employeeId?: IEmployee;
+  employee?: IEmployee;
 }
 
 export const defaultValue: Readonly<IEmployeeDetails> = {};

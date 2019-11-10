@@ -18,14 +18,14 @@ export interface IEmployeeDetailsUpdateProps extends StateProps, DispatchProps, 
 
 export interface IEmployeeDetailsUpdateState {
   isNew: boolean;
-  employeeIdId: string;
+  employeeId: string;
 }
 
 export class EmployeeDetailsUpdate extends React.Component<IEmployeeDetailsUpdateProps, IEmployeeDetailsUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      employeeIdId: '0',
+      employeeId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -109,7 +109,7 @@ export class EmployeeDetailsUpdate extends React.Component<IEmployeeDetailsUpdat
                   <Label id="departmentLabel" for="employee-details-department">
                     Department
                   </Label>
-                  <AvField id="employee-details-department" type="string" className="form-control" name="department" />
+                  <AvField id="employee-details-department" type="text" name="department" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="dobLabel" for="employee-details-dob">
@@ -154,8 +154,8 @@ export class EmployeeDetailsUpdate extends React.Component<IEmployeeDetailsUpdat
                   <AvField id="employee-details-location" type="text" name="location" />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="employee-details-employeeId">Employee Id</Label>
-                  <AvInput id="employee-details-employeeId" type="select" className="form-control" name="employeeId.id">
+                  <Label for="employee-details-employee">Employee</Label>
+                  <AvInput id="employee-details-employee" type="select" className="form-control" name="employee.id">
                     <option value="" key="0" />
                     {employees
                       ? employees.map(otherEntity => (

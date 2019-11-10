@@ -45,7 +45,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "employeeTimeSheet",
-            "relationshipName": "employeeId",
+            "relationshipName": "employee",
             "otherEntityField": "id"
         }
     ],

@@ -29,7 +29,7 @@ public class EmployeeDetails implements Serializable {
     private String designation;
 
     @Column(name = "department")
-    private Integer department;
+    private String department;
 
     @Column(name = "dob")
     private LocalDate dob;
@@ -54,7 +54,7 @@ public class EmployeeDetails implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("employeeDetails")
-    private Employee employeeId;
+    private Employee employee;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -104,16 +104,16 @@ public class EmployeeDetails implements Serializable {
         this.designation = designation;
     }
 
-    public Integer getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public EmployeeDetails department(Integer department) {
+    public EmployeeDetails department(String department) {
         this.department = department;
         return this;
     }
 
-    public void setDepartment(Integer department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -208,17 +208,17 @@ public class EmployeeDetails implements Serializable {
         this.location = location;
     }
 
-    public Employee getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public EmployeeDetails employeeId(Employee employee) {
-        this.employeeId = employee;
+    public EmployeeDetails employee(Employee employee) {
+        this.employee = employee;
         return this;
     }
 
-    public void setEmployeeId(Employee employee) {
-        this.employeeId = employee;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -245,7 +245,7 @@ public class EmployeeDetails implements Serializable {
             ", email='" + getEmail() + "'" +
             ", name='" + getName() + "'" +
             ", designation='" + getDesignation() + "'" +
-            ", department=" + getDepartment() +
+            ", department='" + getDepartment() + "'" +
             ", dob='" + getDob() + "'" +
             ", joiningDate='" + getJoiningDate() + "'" +
             ", panNo='" + getPanNo() + "'" +

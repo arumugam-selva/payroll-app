@@ -15,7 +15,7 @@
         },
         {
             "fieldName": "department",
-            "fieldType": "Integer"
+            "fieldType": "String"
         },
         {
             "fieldName": "dob",
@@ -51,7 +51,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "employeeDetails",
-            "relationshipName": "employeeId",
+            "relationshipName": "employee",
             "otherEntityField": "id"
         }
     ],

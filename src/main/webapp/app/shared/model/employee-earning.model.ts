@@ -10,7 +10,7 @@ export interface IEmployeeEarning {
   leaveEncash?: number;
   specialAllowance?: number;
   reimbursement?: number;
-  employeeId?: IEmployee;
+  employee?: IEmployee;
 }
 
 export const defaultValue: Readonly<IEmployeeEarning> = {};

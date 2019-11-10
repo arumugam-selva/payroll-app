@@ -110,7 +110,7 @@ export class EmployeeEarning extends React.Component<IEmployeeEarningProps, IEmp
                       Reimbursement <FontAwesomeIcon icon="sort" />
                     </th>
                     <th>
-                      Employee Id <FontAwesomeIcon icon="sort" />
+                      Employee <FontAwesomeIcon icon="sort" />
                     </th>
                     <th />
                   </tr>
@@ -133,8 +133,8 @@ export class EmployeeEarning extends React.Component<IEmployeeEarningProps, IEmp
                       <td>{employeeEarning.specialAllowance}</td>
                       <td>{employeeEarning.reimbursement}</td>
                       <td>
-                        {employeeEarning.employeeId ? (
-                          <Link to={`employee/${employeeEarning.employeeId.id}`}>{employeeEarning.employeeId.id}</Link>
+                        {employeeEarning.employee ? (
+                          <Link to={`employee/${employeeEarning.employee.id}`}>{employeeEarning.employee.id}</Link>
                         ) : (
                           ''
                         )}

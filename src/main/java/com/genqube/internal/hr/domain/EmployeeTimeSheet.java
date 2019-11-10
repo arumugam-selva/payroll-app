@@ -45,7 +45,7 @@ public class EmployeeTimeSheet implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("employeeTimeSheets")
-    private Employee employeeId;
+    private Employee employee;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -134,17 +134,17 @@ public class EmployeeTimeSheet implements Serializable {
         this.noOfArearDays = noOfArearDays;
     }
 
-    public Employee getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public EmployeeTimeSheet employeeId(Employee employee) {
-        this.employeeId = employee;
+    public EmployeeTimeSheet employee(Employee employee) {
+        this.employee = employee;
         return this;
     }
 
-    public void setEmployeeId(Employee employee) {
-        this.employeeId = employee;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

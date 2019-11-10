@@ -8,7 +8,7 @@ export interface IEmployeeTimeSheet {
   noOfLeavs?: number;
   noOfLop?: number;
   noOfArearDays?: number;
-  employeeId?: IEmployee;
+  employee?: IEmployee;
 }
 
 export const defaultValue: Readonly<IEmployeeTimeSheet> = {};

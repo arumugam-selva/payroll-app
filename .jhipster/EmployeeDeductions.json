@@ -30,7 +30,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "employeeDeductions",
-            "relationshipName": "employeeId",
+            "relationshipName": "employee",
             "otherEntityField": "id"
         }
     ],
