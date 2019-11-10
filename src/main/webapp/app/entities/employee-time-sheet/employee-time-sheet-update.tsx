@@ -18,14 +18,14 @@ export interface IEmployeeTimeSheetUpdateProps extends StateProps, DispatchProps
 
 export interface IEmployeeTimeSheetUpdateState {
   isNew: boolean;
-  employeeIdId: string;
+  employeeId: string;
 }
 
 export class EmployeeTimeSheetUpdate extends React.Component<IEmployeeTimeSheetUpdateProps, IEmployeeTimeSheetUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      employeeIdId: '0',
+      employeeId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -146,8 +146,8 @@ export class EmployeeTimeSheetUpdate extends React.Component<IEmployeeTimeSheetU
                   <AvField id="employee-time-sheet-noOfArearDays" type="string" className="form-control" name="noOfArearDays" />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="employee-time-sheet-employeeId">Employee Id</Label>
-                  <AvInput id="employee-time-sheet-employeeId" type="select" className="form-control" name="employeeId.id">
+                  <Label for="employee-time-sheet-employee">Employee</Label>
+                  <AvInput id="employee-time-sheet-employee" type="select" className="form-control" name="employee.id">
                     <option value="" key="0" />
                     {employees
                       ? employees.map(otherEntity => (

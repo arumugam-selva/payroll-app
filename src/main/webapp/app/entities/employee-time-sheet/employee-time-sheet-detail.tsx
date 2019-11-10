@@ -50,8 +50,8 @@ export class EmployeeTimeSheetDetail extends React.Component<IEmployeeTimeSheetD
               <span id="noOfArearDays">No Of Arear Days</span>
             </dt>
             <dd>{employeeTimeSheetEntity.noOfArearDays}</dd>
-            <dt>Employee Id</dt>
-            <dd>{employeeTimeSheetEntity.employeeId ? employeeTimeSheetEntity.employeeId.id : ''}</dd>
+            <dt>Employee</dt>
+            <dd>{employeeTimeSheetEntity.employee ? employeeTimeSheetEntity.employee.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/employee-time-sheet" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

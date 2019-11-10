@@ -25,7 +25,7 @@
             <column name="designation" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="department" type="integer">
+            <column name="department" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="dob" type="date">
@@ -49,7 +49,7 @@
             <column name="location" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="employee_id_id" type="bigint">
+            <column name="employee_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -78,7 +78,7 @@
             <column name="email" type="string"/>
             <column name="name" type="string"/>
             <column name="designation" type="string"/>
-            <column name="department" type="numeric"/>
+            <column name="department" type="string"/>
             <column name="dob" type="date"/>
             <column name="joining_date" type="date"/>
             <column name="pan_no" type="string"/>

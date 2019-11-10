@@ -107,7 +107,7 @@ export class EmployeeTimeSheet extends React.Component<IEmployeeTimeSheetProps, 
                       No Of Arear Days <FontAwesomeIcon icon="sort" />
                     </th>
                     <th>
-                      Employee Id <FontAwesomeIcon icon="sort" />
+                      Employee <FontAwesomeIcon icon="sort" />
                     </th>
                     <th />
                   </tr>
@@ -127,8 +127,8 @@ export class EmployeeTimeSheet extends React.Component<IEmployeeTimeSheetProps, 
                       <td>{employeeTimeSheet.noOfLop}</td>
                       <td>{employeeTimeSheet.noOfArearDays}</td>
                       <td>
-                        {employeeTimeSheet.employeeId ? (
-                          <Link to={`employee/${employeeTimeSheet.employeeId.id}`}>{employeeTimeSheet.employeeId.id}</Link>
+                        {employeeTimeSheet.employee ? (
+                          <Link to={`employee/${employeeTimeSheet.employee.id}`}>{employeeTimeSheet.employee.id}</Link>
                         ) : (
                           ''
                         )}

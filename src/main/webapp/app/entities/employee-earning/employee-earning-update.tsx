@@ -18,14 +18,14 @@ export interface IEmployeeEarningUpdateProps extends StateProps, DispatchProps, 
 
 export interface IEmployeeEarningUpdateState {
   isNew: boolean;
-  employeeIdId: string;
+  employeeId: string;
 }
 
 export class EmployeeEarningUpdate extends React.Component<IEmployeeEarningUpdateProps, IEmployeeEarningUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      employeeIdId: '0',
+      employeeId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -138,8 +138,8 @@ export class EmployeeEarningUpdate extends React.Component<IEmployeeEarningUpdat
                   <AvField id="employee-earning-reimbursement" type="string" className="form-control" name="reimbursement" />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="employee-earning-employeeId">Employee Id</Label>
-                  <AvInput id="employee-earning-employeeId" type="select" className="form-control" name="employeeId.id">
+                  <Label for="employee-earning-employee">Employee</Label>
+                  <AvInput id="employee-earning-employee" type="select" className="form-control" name="employee.id">
                     <option value="" key="0" />
                     {employees
                       ? employees.map(otherEntity => (

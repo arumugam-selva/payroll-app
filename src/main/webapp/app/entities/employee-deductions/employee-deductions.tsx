@@ -104,7 +104,7 @@ export class EmployeeDeductions extends React.Component<IEmployeeDeductionsProps
                       Lop <FontAwesomeIcon icon="sort" />
                     </th>
                     <th>
-                      Employee Id <FontAwesomeIcon icon="sort" />
+                      Employee <FontAwesomeIcon icon="sort" />
                     </th>
                     <th />
                   </tr>
@@ -125,8 +125,8 @@ export class EmployeeDeductions extends React.Component<IEmployeeDeductionsProps
                       <td>{employeeDeductions.incomeTax}</td>
                       <td>{employeeDeductions.lop}</td>
                       <td>
-                        {employeeDeductions.employeeId ? (
-                          <Link to={`employee/${employeeDeductions.employeeId.id}`}>{employeeDeductions.employeeId.id}</Link>
+                        {employeeDeductions.employee ? (
+                          <Link to={`employee/${employeeDeductions.employee.id}`}>{employeeDeductions.employee.id}</Link>
                         ) : (
                           ''
                         )}

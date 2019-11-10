@@ -122,7 +122,7 @@ export class EmployeeDetails extends React.Component<IEmployeeDetailsProps, IEmp
                       Location <FontAwesomeIcon icon="sort" />
                     </th>
                     <th>
-                      Employee Id <FontAwesomeIcon icon="sort" />
+                      Employee <FontAwesomeIcon icon="sort" />
                     </th>
                     <th />
                   </tr>
@@ -151,8 +151,8 @@ export class EmployeeDetails extends React.Component<IEmployeeDetailsProps, IEmp
                       <td>{employeeDetails.bank}</td>
                       <td>{employeeDetails.location}</td>
                       <td>
-                        {employeeDetails.employeeId ? (
-                          <Link to={`employee/${employeeDetails.employeeId.id}`}>{employeeDetails.employeeId.id}</Link>
+                        {employeeDetails.employee ? (
+                          <Link to={`employee/${employeeDetails.employee.id}`}>{employeeDetails.employee.id}</Link>
                         ) : (
                           ''
                         )}

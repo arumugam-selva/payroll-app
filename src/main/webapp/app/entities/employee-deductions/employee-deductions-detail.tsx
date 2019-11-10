@@ -48,8 +48,8 @@ export class EmployeeDeductionsDetail extends React.Component<IEmployeeDeduction
               <span id="lop">Lop</span>
             </dt>
             <dd>{employeeDeductionsEntity.lop}</dd>
-            <dt>Employee Id</dt>
-            <dd>{employeeDeductionsEntity.employeeId ? employeeDeductionsEntity.employeeId.id : ''}</dd>
+            <dt>Employee</dt>
+            <dd>{employeeDeductionsEntity.employee ? employeeDeductionsEntity.employee.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/employee-deductions" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

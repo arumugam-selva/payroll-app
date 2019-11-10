@@ -38,7 +38,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "employeeEarning",
-            "relationshipName": "employeeId",
+            "relationshipName": "employee",
             "otherEntityField": "id"
         }
     ],

@@ -8,7 +8,7 @@ export interface IEmployeeDeductions {
   profTax?: number;
   incomeTax?: number;
   lop?: number;
-  employeeId?: IEmployee;
+  employee?: IEmployee;
 }
 
 export const defaultValue: Readonly<IEmployeeDeductions> = {};
